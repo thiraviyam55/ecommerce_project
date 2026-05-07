@@ -8,18 +8,18 @@ export default function ProductDetailPage() {
     const [product, setProduct] = useState(null);
 
     useEffect(() => {
+        const fetchProduct = async() => {
+            try {
+                const response = await getProductDetail(id);
+
+                setProduct(response.data);
+            } catch (error) {
+                console.log(error);
+            }
+        };
+
         fetchProduct();
-    }, []);
-
-    const fetchProduct = async() => {
-        try {
-            const response = await getProductDetail(id);
-
-            setProduct(response.data);
-        } catch (error) {
-            console.log(error);
-        }
-    };
+    }, [id]);
 
     if (!product) {
         return ( <
@@ -81,14 +81,14 @@ export default function ProductDetailPage() {
             'Out of Stock'
         } <
         /div> < /
-        div >
+    div >
 
         <
         button className = 'mt-8 bg-indigo-600 hover:bg-indigo-700 text-white px-8 py-3 rounded-xl transition' >
         Add to Cart <
         /button> < /
-        div > <
+    div > <
         /div> < /
-        div >
+    div >
 );
 }

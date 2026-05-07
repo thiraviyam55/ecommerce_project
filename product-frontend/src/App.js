@@ -1,5 +1,6 @@
  import { BrowserRouter, Routes, Route } from 'react-router-dom';
  import SearchPage from './pages/SearchPage';
+ import ProductDetailPage from './pages/ProductDetailPage';
 
  function App() {
      return ( <
@@ -10,8 +11,12 @@
          Route path = '/'
          element = { < SearchPage / > }
          /> < /
-         Routes > <
-         /BrowserRouter>
+         Routes >
+         <
+         Route path = '/product/:id'
+         element = { < ProductDetailPage / > }
+         />< /
+         BrowserRouter >
      );
  }
 

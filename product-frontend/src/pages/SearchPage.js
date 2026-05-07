@@ -96,7 +96,7 @@ export default function SearchPage() {
                         <
                         div className = 'h-56 overflow-hidden bg-gray-100' >
                         <
-                        img src = { `https://YOUR-BACKEND-URL.onrender.com${product.image}` }
+                        img src = { `https://ecommerce-project-3zgl.onrender.com${product.image}` }
                         alt = { product.name }
                         className = 'w-full h-full object-cover hover:scale-105 transition duration-300' /
                         >

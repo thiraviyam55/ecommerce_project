@@ -9,7 +9,7 @@ const options = {
             description: 'eCommerce Product Service API'
         },
         servers: [{
-            url: 'http://localhost:5000'
+            url: 'https://ecommerce-project-3zgl.onrender.com'
         }],
         components: {
             securitySchemes: {

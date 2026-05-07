@@ -112,3 +112,20 @@ exports.searchProducts = asyncHandler(async(req, res) => {
         })
     );
 });
+
+exports.getProductById = asyncHandler(async(req, res) => {
+
+    const product = await Product.findByPk(req.params.id);
+
+    if (!product) {
+        throw new ApiError(404, 'Product not found');
+    }
+
+    return res.json(
+        new ApiResponse(
+            200,
+            'Product fetched successfully',
+            product
+        )
+    );
+});

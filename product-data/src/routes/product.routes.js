@@ -127,4 +127,26 @@ router.get('/admin/all', authMiddleware, productController.getAllProducts);
  *         description: Products fetched successfully
  */
 router.get('/', productController.searchProducts);
+
+/**
+ * @swagger
+ * /api/product/{id}:
+ *   get:
+ *     summary: Get product details by ID
+ *     tags: [Products]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: integer
+ *         description: Product ID
+ *     responses:
+ *       200:
+ *         description: Product fetched successfully
+ *       404:
+ *         description: Product not found
+ */
+router.get('/:id', productController.getProductById);
+
 module.exports = router;

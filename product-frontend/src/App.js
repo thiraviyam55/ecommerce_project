@@ -1,6 +1,6 @@
  import { BrowserRouter, Routes, Route } from 'react-router-dom';
  import SearchPage from './pages/SearchPage';
- import ProductDetailPage from './pages/ProductDetailPage';
+ import ProductDetailPage from './pages/ProductDetail';
 
  function App() {
      return ( <

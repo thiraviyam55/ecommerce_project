@@ -1,23 +1,18 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import SearchPage from "./pages/SearchPage";
-import ProductDetail from "./pages/ProductDetail";
+ import { BrowserRouter, Routes, Route } from 'react-router-dom';
+ import SearchPage from './pages/SearchPage';
 
-function App() {
+ function App() {
+     return ( <
+         BrowserRouter >
+         <
+         Routes >
+         <
+         Route path = '/'
+         element = { < SearchPage / > }
+         /> < /
+         Routes > <
+         /BrowserRouter>
+     );
+ }
 
-    return ( <
-        BrowserRouter >
-        <
-        Routes >
-        <
-        Route path = "/"
-        element = { < SearchPage / > }
-        /> <
-        Route path = "/product/:id"
-        element = { < ProductDetail / > }
-        /> < /
-        Routes > <
-        /BrowserRouter>
-    );
-}
-
-export default App;
+ export default App;

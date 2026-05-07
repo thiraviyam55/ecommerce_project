@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { getProductDetails } from '../api/api';
+import { getProductDetail } from '../api/api';
 
 export default function ProductDetailPage() {
     const { id } = useParams();
@@ -12,65 +12,83 @@ export default function ProductDetailPage() {
     }, []);
 
     const fetchProduct = async() => {
-        const response = await getProductDetails(id);
+        try {
+            const response = await getProductDetail(id);
 
-        setProduct(response.data);
+            setProduct(response.data);
+        } catch (error) {
+            console.log(error);
+        }
     };
 
     if (!product) {
-        return <div className = 'p-10' > Loading... < /div>;
+        return ( <
+            div className = 'p-10 text-center text-xl' >
+            Loading... <
+            /div>
+        );
     }
 
     return ( <
-        div className = 'max-w-6xl mx-auto p-6' >
-        <
-        div className = 'grid md:grid-cols-2 gap-10 bg-white shadow-lg rounded-2xl overflow-hidden' >
+            div className = 'min-h-screen bg-gray-100 py-10' >
+            <
+            div className = 'max-w-6xl mx-auto bg-white rounded-2xl shadow-lg overflow-hidden grid md:grid-cols-2 gap-10' >
+
+            { /* IMAGE */ } <
+            div className = 'bg-gray-100' >
+            <
+            img src = { `https://ecommerce-project-3zgl.onrender.com${product.image}` }
+            alt = { product.name }
+            className = 'w-full h-full object-cover' /
+            >
+            <
+            /div>
+
+            { /* CONTENT */ } <
+            div className = 'p-8' >
+            <
+            h1 className = 'text-4xl font-bold text-gray-800 mb-4' > { product.name } <
+            /h1>
+
+            <
+            p className = 'text-gray-600 leading-7 mb-6' > { product.description } <
+            /p>
+
+            <
+            div className = 'space-y-4' >
+            <
+            div >
+            <
+            span className = 'text-gray-500' > Price: < /span>
+
+            <
+            p className = 'text-3xl font-bold text-indigo-600' > ₹{ product.price } <
+            /p> < /
+            div >
+
+            <
+            div >
+            <
+            span className = 'font-semibold' > SKU: < /span>{' '} { product.sku } < /
+            div >
+
+            <
+            div >
+            <
+            span className = 'font-semibold' > Availability: < /span>{' '} {
+            product.availability ?
+            'In Stock' :
+            'Out of Stock'
+        } <
+        /div> < /
+        div >
 
         <
-        div className = 'bg-gray-100' >
-        <
-        img src = { `https://YOUR-BACKEND-URL.onrender.com${product.image}` }
-        alt = { product.name }
-        className = 'w-full h-full object-cover' /
-        >
-        <
-        /div>
-
-        <
-        div className = 'p-8' >
-        <
-        h1 className = 'text-4xl font-bold mb-4' > { product.name } <
-        /h1>
-
-        <
-        p className = 'text-gray-600 mb-6' > { product.description } <
-        /p>
-
-        <
-        div className = 'space-y-3' >
-        <
-        p className = 'text-2xl font-bold text-indigo-600' > ₹{ product.price } <
-        /p>
-
-        <
-        p >
-        <
-        span className = 'font-semibold' > SKU: < /span> {product.sku} < /
-        p >
-
-        <
-        p >
-        <
-        span className = 'font-semibold' > Availability: < /span>{' '} { product.availability ? 'In Stock' : 'Out of Stock' } < /
-        p > <
-        /div>
-
-        <
-        button className = 'mt-8 bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3 rounded-xl' >
+        button className = 'mt-8 bg-indigo-600 hover:bg-indigo-700 text-white px-8 py-3 rounded-xl transition' >
         Add to Cart <
         /button> < /
         div > <
         /div> < /
         div >
-    );
+);
 }

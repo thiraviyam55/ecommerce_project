@@ -5,17 +5,19 @@ export default function ProductCard({ product }) {
 
     return ( <
         div style = {
-            { border: "1px solid #ccc", padding: 10, margin: 10 } }
+            { border: "1px solid #ccc", padding: 10, margin: 10 }
+        }
         onClick = {
-            () => navigate(`/product/${product.id}`) } >
+            () => navigate(`/product/${product.id}`)
+        } >
         <
-        img src = { `http://localhost:5000${product.image}` }
+        img src = { `https://ecommerce-project-3zgl.onrender.com${product.image}` }
         alt = { product.name }
         width = "120" /
         >
         <
         h3 > { product.name } < /h3> <
-        p > ₹{ product.price } < /p> <
-        /div>
+        p > ₹{ product.price } < /p> < /
+        div >
     );
 }

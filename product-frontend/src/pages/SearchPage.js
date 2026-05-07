@@ -38,17 +38,17 @@ export default function SearchPage() {
                 div key = { p.id }
                 className = "border p-4 rounded shadow" >
                 <
-                img src = { `http://localhost:5000${p.image}` }
+                img src = { `https://ecommerce-project-3zgl.onrender.com${p.image}` }
                 alt = { p.name }
                 className = "w-full h-40 object-cover" /
                 >
                 <
                 h3 className = "font-bold mt-2" > { p.name } < /h3> <
-                p > ₹{ p.price } < /p> <
-                /div>
+                p > ₹{ p.price } < /p> < /
+                div >
             ))
         } <
-        /div> <
-        /div>
+        /div> < /
+        div >
     );
 }

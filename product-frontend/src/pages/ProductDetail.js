@@ -20,7 +20,7 @@ export default function ProductDetail() {
         h2 > { product.name } < /h2>
 
         <
-        img src = { `http://localhost:5000${product.image}` }
+        img src = { `https://ecommerce-project-3zgl.onrender.com${product.image}` }
         alt = { product.name }
         width = "200" /
         >
@@ -29,7 +29,7 @@ export default function ProductDetail() {
         p > { product.description } < /p> <
         p > Price: ₹{ product.price } < /p> <
         p > SKU: { product.sku } < /p> <
-        p > Available: { product.availability ? "Yes" : "No" } < /p> <
-        /div>
+        p > Available: { product.availability ? "Yes" : "No" } < /p> < /
+        div >
     );
 }
